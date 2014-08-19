@@ -1,0 +1,16 @@
+D:\Xamarin\SHassist\SHassist\bin\Debug\SHassist.dll
+D:\Xamarin\SHassist\SHassist\bin\Debug\SHassist.pdb
+D:\Xamarin\SHassist\SHassist\bin\Debug\SHassist.dll.mdb
+D:\Xamarin\SHassist\SHassist\bin\Debug\SHassist.SHassist.apk
+D:\Xamarin\SHassist\SHassist\bin\Debug\SHassist.SHassist-Signed.apk
+D:\Xamarin\SHassist\SHassist\obj\Debug\SHassist.dll
+D:\Xamarin\SHassist\SHassist\obj\Debug\SHassist.pdb
+D:\Xamarin\SHassist\SHassist\obj\Debug\android\bin\SHassist.SHassist.apk
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\layout\main.xml
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\values\strings.xml
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\drawable\icon.png
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\layout\logindialog.xml
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\layout\dropdown.xml
+D:\Xamarin\SHassist\SHassist\obj\Debug\R.cs.flag
+D:\Xamarin\SHassist\SHassist\obj\Debug\uploadflags.txt
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\values\dimen.xml

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0" />
+    <AutoCompleteTextView
+        android:id="@+id/fieldKey"
+        android:hint="SHКЛЮЧПОЛЯ"
+        android:inputType="textCapCharacters"
+        android:textSize="@dimen/keyInputTextSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+        <AutoCompleteTextView
+            android:hint="SHКЛЮЧМОЗГА"
+            android:inputType="textCapCharacters"
+            android:textSize="@dimen/keyInputTextSize"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/brainKey" />
+        <TextView
+            android:text="OK"
+            android:visibility="gone"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/brainKeyOkLabel"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp" />
+    </LinearLayout>
+    <Button
+        android:text="Проверить ключ"
+        android:visibility="visible"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/webview"
+        android:id="@+id/Submit" />
+</LinearLayout>

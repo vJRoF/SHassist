@@ -1,0 +1,1 @@
+<TextView android:text="SOME TEXT" android:textSize="@dimen/keyInputTextSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="#FFF" android:textColor="#000" xmlns:android="http://schemas.android.com/apk/res/android" />
