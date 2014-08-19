@@ -68,10 +68,6 @@ namespace SHassist
 			HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(new Uri(baseUri, targetPageRelative));
 			webRequest.Timeout = timeout;
 			webRequest.Method = "GET";
-			//webRequest.Headers.Add(HttpRequestHeader.Cookie, _cookieManager.Get("shvatkamember_id") + " " + _cookieManager.Get("shvatkapass_hash"));
-//			webRequest.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
-//			webRequest.Headers.Add ("Accept-Encoding", "gzip,deflate,sdch");
-//			webRequest.Headers.Add ("Accept-Languag", "ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4");
 			if(useProxy)
 				webRequest.Proxy = new WebProxy (new Uri ("http://10.0.2.2:8888/"));
 			webRequest.AllowAutoRedirect = false;
