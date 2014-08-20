@@ -22,8 +22,8 @@ namespace SHassist
 		const string targetPageRelative = "index.php?act=module&module=shvatka&lofver=1";
 		bool useProxy = false;
 		#else
-		Uri baseUri = new Uri("http://10.0.2.2:7870/");
-		const string targetPageRelative = "level1.html";
+		Uri baseUri = new Uri("http://shtest.somee.com/");
+		const string targetPageRelative = "index.php?act=module&module=shvatka&lofver=1";
 		bool useProxy = false;
 		#endif
 
@@ -70,7 +70,7 @@ namespace SHassist
 			webRequest.Method = "GET";
 			if(useProxy)
 				webRequest.Proxy = new WebProxy (new Uri ("http://10.0.2.2:8888/"));
-			webRequest.AllowAutoRedirect = false;
+			webRequest.AllowAutoRedirect = true;
 			return webRequest;
 		}
 
