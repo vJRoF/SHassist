@@ -41,7 +41,7 @@
             android:layout_marginLeft="5dp" />
     </LinearLayout>
     <Button
-        android:text="Проверить ключ"
+        android:text="Обновить"
         android:visibility="visible"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

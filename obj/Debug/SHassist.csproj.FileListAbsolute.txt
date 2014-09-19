@@ -14,3 +14,9 @@ D:\Xamarin\SHassist\SHassist\obj\Debug\res\layout\dropdown.xml
 D:\Xamarin\SHassist\SHassist\obj\Debug\R.cs.flag
 D:\Xamarin\SHassist\SHassist\obj\Debug\uploadflags.txt
 D:\Xamarin\SHassist\SHassist\obj\Debug\res\values\dimen.xml
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\layout\menu.xml
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\drawable-xxhdpi\icon.png
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\drawable-hdpi\icon.png
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\drawable-mdpi\icon.png
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\drawable-ldpi\icon.png
+D:\Xamarin\SHassist\SHassist\obj\Debug\res\drawable-xhdpi\icon.png

@@ -1,4 +1,4 @@
-﻿#define LOCAL_DEBUG
+﻿//#define LOCAL_DEBUG
 
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,8 @@ namespace SHassist
 		public event PageObtained OnPageObtained;
 
 		#if !LOCAL_DEBUG
-		Uri baseUri = new Uri("http://www.shvatka.ru");
+		//Uri baseUri = new Uri("http://www.shvatka.ru");
+		Uri baseUri = new Uri("http://shtest.somee.com/");
 		const string targetPageRelative = "index.php?act=module&module=shvatka&lofver=1";
 		bool useProxy = false;
 		#else
@@ -56,8 +57,10 @@ namespace SHassist
 			byte[] queryBytes = Encoding.GetEncoding (1251).GetBytes (query);
 			webRequest.GetRequestStream ().Write (queryBytes, 0, queryBytes.Length);
 			HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
-			var set_cookie = webResponse.Headers.GetValues ("Set-Cookie").Where(value => value.Contains("shvatkamember_id") || value.Contains("shvatkapass_hash")).Select(cookie => cookie.Split(' ')[0]);
-			if (set_cookie.Count () == 2) {
+			var set_cookie = webResponse.Headers.GetValues ("Set-Cookie")
+				.Where(value => _cookieManager.CookieNames.Any(cookieName => value.Contains(cookieName))) //value.Contains("shvatkamember_id") || value.Contains("shvatkapass_hash"))
+				.Select(cookie => cookie.Split(' ')[0]);
+			if (set_cookie.Count () == _cookieManager.CookieNames.Length) {
 				_cookieManager.Add (set_cookie);
 				return true;
 			} else
@@ -71,6 +74,14 @@ namespace SHassist
 			if(useProxy)
 				webRequest.Proxy = new WebProxy (new Uri ("http://10.0.2.2:8888/"));
 			webRequest.AllowAutoRedirect = true;
+			//webRequest.CookieContainer = new CookieContainer ();
+			//_cookieManager.CookieNames.Select (cookieName => {
+
+				//retu
+				//webRequest.CookieContainer.Add(new Cookie (cookieName, _cookieManager.Get (cookieName)));
+				//return true;
+			//});
+			webRequest.Headers.Add(HttpRequestHeader.Cookie, string.Join(" ", _cookieManager.GetAllCookies()));
 			return webRequest;
 		}
 
@@ -84,19 +95,6 @@ namespace SHassist
 
 			return webRequest;
 		}
-
-//		public string GetPage() {
-//			HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(new Uri(baseUri, targetPageRelative));
-//			webRequest.Headers.Add(HttpRequestHeader.Cookie, _cookieManager.Get("shvatkamember_id") + " " + _cookieManager.Get("shvatkapass_hash"));
-//			if(useProxy)
-//				webRequest.Proxy = new WebProxy (new Uri ("http://10.0.2.2:8888/"));
-//			HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
-//			string response;
-//			using (StreamReader sr = new StreamReader(webResponse.GetResponseStream(), Encoding.GetEncoding(1251))) {
-//				response = sr.ReadToEnd ();
-//			}
-//			return response;
-//		}
 
 		public void GetPageAsync(string fieldKey, string brainKey){
 			HttpWebRequest webRequest;
@@ -137,6 +135,7 @@ namespace SHassist
 	}
 
 	class CookieManager {
+		public readonly string[] CookieNames = new string[3]{"shvatkamember_id", "shvatkapass_hash", "shvatkasession_id"};
 		private readonly HashSet<string> _cookies;
 
 		public bool HasCookies {
@@ -172,6 +171,11 @@ namespace SHassist
 
 		public string Get(string part) {
 			return _cookies.Single(cookie => cookie.Contains(part));
+		}
+
+		public string[] GetAllCookies () {
+			string[] result = _cookies.ToArray ();
+			return result;
 		}
 	}
 

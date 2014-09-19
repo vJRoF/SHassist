@@ -56,7 +56,8 @@ namespace SHassist {
 		public GameEngine (ShvatkaHttpConnector shvatkaHttpConnector) {
 			_shvatkaHttpConnector = shvatkaHttpConnector;
 			_shvatkaHttpConnector.OnPageObtained += pageHtml => {
-				ActualPage = new Page(pageHtml);
+				Page newPage = new Page(pageHtml);
+				ActualPage = newPage;
 			};
 //			_shvatkaHttpConnector.GetPageAsync ("SHПОЛЕВОЙ", "SHМОЗГОВОЙ");
 //			_timer = new Timer (_shvatkaHttpConnector.GetPage, null, 0, Period);
@@ -103,28 +104,37 @@ namespace SHassist {
 
 			string formPattern = "<Form[\\s\\S]*?</form>";
 			string formString = Regex.Match (pageHtml, formPattern, RegexOptions.IgnoreCase).Value;
-			if (formString.Contains ("Мозговой ключ")) {
-				hasBrainKey = true;
-				brainKey = Regex.Match (formString, brainKeyStart + "[\\s\\S]*?" + brainKeyEnd, RegexOptions.IgnoreCase).Value;
-				brainKey = brainKey.Replace (brainKeyStart, string.Empty);
-				brainKey = brainKey.Replace (brainKeyEnd, string.Empty);
-				if (brainKey.Length > 0) {
-					brainKeyCorrect = true;
+			if (!string.IsNullOrEmpty (formString)) {
+				hasFieldKey = true;
+				if (formString.Contains ("Мозговой ключ")) {
+					hasBrainKey = true;
+					brainKey = Regex.Match (formString, brainKeyStart + "[\\s\\S]*?" + brainKeyEnd, RegexOptions.IgnoreCase).Value;
+					brainKey = brainKey.Replace (brainKeyStart, string.Empty);
+					brainKey = brainKey.Replace (brainKeyEnd, string.Empty);
+					if (brainKey.Length > 0) {
+						brainKeyCorrect = true;
+					} else {
+						brainKeyCorrect = false;
+					}
 				} else {
-					brainKeyCorrect = false;
+					hasBrainKey = false;
 				}
-			} else {
-				hasBrainKey = false;
-			}
 
-			html = pageHtml.Replace(formString, string.Empty);
+				html = pageHtml.Replace (formString, string.Empty);
+			} else {
+				hasFieldKey = false;
+				html = pageHtml;
+			}
+			submitButtonText = hasFieldKey ? "Проверить ключ" : "Обновить";
 		}
 
 		public string[] fieldKeys { set; get; }
 		public string[] brainKeys { set; get; }
 
+		public string submitButtonText { private set; get; }
 		public string levelNumber { private set; get; }
 		public string html { private set; get; }
+		public bool hasFieldKey { private set; get; }     //Отображать поле ввода полевого ключа
 		public bool hasBrainKey { private set; get; }     //Отображать поле ввода мозгового ключа
 		public string brainKey { private set; get; }      //Сам мозговой ключ
 		public bool brainKeyCorrect { private set; get; } //Был введён правильный мозговой ключ

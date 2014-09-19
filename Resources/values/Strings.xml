@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">SHassist</string>
 	<string name="Login">Залогиниться</string>
 	<string name="CancelLogin">Выйти</string>
+	<string name="TestModeOn">ВКЛ</string>
+	<string name="TestModeOff">ВЫКЛ</string>
 </resources>

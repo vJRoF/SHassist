@@ -31,6 +31,7 @@ namespace SHassist {
 			mainActivity = MainActivity;
 
 			webView = mainActivity.FindViewById<WebView> (Resource.Id.webview);
+			webView.SetPadding (3, 3, 3, 3);
 
 			fieldKey = mainActivity.FindViewById<AutoCompleteTextView> (Resource.Id.fieldKey);
 			fieldKey.FocusChange += AddSH;
@@ -60,7 +61,8 @@ namespace SHassist {
 			try {
 				webView.LoadDataWithBaseURL ("http://www.shvatka.ru/",  newPage.html, "text/html", "UTF-8", "<html><body>Load error</body></html>");
 
-				mainActivity.RunOnUiThread(() => fieldKey.Visibility = ViewStates.Visible);
+				mainActivity.RunOnUiThread(() => button.Text = newPage.submitButtonText);
+				mainActivity.RunOnUiThread(() => fieldKey.Visibility = newPage.hasFieldKey? ViewStates.Visible : ViewStates.Gone);
 				mainActivity.RunOnUiThread(() => fieldKeyAdapter = new ArrayAdapter<string>(mainActivity, Resource.Layout.dropdown, newPage.fieldKeys));
 				mainActivity.RunOnUiThread(() => fieldKey.Adapter = fieldKeyAdapter);
 				mainActivity.RunOnUiThread(() => inputManager.HideSoftInputFromWindow(fieldKey.WindowToken, 0));
