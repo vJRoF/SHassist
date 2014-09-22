@@ -18,8 +18,8 @@ namespace SHassist
 		public event PageObtained OnPageObtained;
 
 		#if !LOCAL_DEBUG
-		//Uri baseUri = new Uri("http://www.shvatka.ru");
-		Uri baseUri = new Uri("http://shtest.somee.com/");
+		Uri baseUri = new Uri("http://www.shvatka.ru");
+		//Uri baseUri = new Uri("http://shtest.somee.com/");
 		const string targetPageRelative = "index.php?act=module&module=shvatka&lofver=1";
 		bool useProxy = false;
 		#else
