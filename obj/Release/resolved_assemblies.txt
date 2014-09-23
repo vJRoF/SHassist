@@ -1,8 +1,1 @@
 D:\Xamarin\SHassist\SHassist\bin\Release\SHassist.dll
-C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v2.3\Mono.Android.dll
-C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\mscorlib.dll
-C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\System.Core.dll
-C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\System.dll
-C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\System.Web.Services.dll
-C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\System.Xml.dll
-C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\System.Xml.Linq.dll
