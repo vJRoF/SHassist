@@ -94,8 +94,12 @@ namespace SHassist {
 				Regex redundant = new Regex ("<center>(?!(?![\\s\\S]*?</center>)[\\s\\S]*?<center>)[\\s\\S]*?Название игры[\\s\\S]*?</center>");
 				pageHtml = redundant.Replace (pageHtml, string.Empty);
 			}
+//			{
+//				Regex redundant = new Regex ("<center>(?!(?![\\s\\S]*?</center>)[\\s\\S]*?<center>)[\\s\\S]*?Схватка с оформлением[\\s\\S]*?</center>");
+//				pageHtml = redundant.Replace (pageHtml, string.Empty);
+//			}
 			{
-				Regex redundant = new Regex ("<center>(?!(?![\\s\\S]*?</center>)[\\s\\S]*?<center>)[\\s\\S]*?Схватка с оформлением[\\s\\S]*?</center>");
+				Regex redundant = new Regex ("Схватка с оформлением");
 				pageHtml = redundant.Replace (pageHtml, string.Empty);
 			}
 

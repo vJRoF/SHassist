@@ -30,9 +30,9 @@ namespace SHassist
 
 			//TODO: Проверить, что куки доступны, иначе отобразить форму логина
 
-//			if (!(shvatkaHttpConnector.HasCookies||hasCookies)) {
-//				ShowLoginDialog ();
-//			}
+			if (!(shvatkaHttpConnector.HasCookies||hasCookies)) {
+				ShowLoginDialog ();
+			}
 
 
 			gameEngine = new GameEngine (shvatkaHttpConnector) { Period = 1000 };
